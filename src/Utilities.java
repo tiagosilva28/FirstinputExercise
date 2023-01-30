@@ -5,22 +5,18 @@ import java.nio.file.Paths;
 
 public class Utilities {
 
-    public static String userAskInput (String msg){
-        InputStream in = System.in;
-        InputStreamReader reader = new InputStreamReader(in);
+    private BufferedReader consoleReader;
+    private BufferedWriter writer;
 
-        BufferedReader br = new BufferedReader(reader);
-        System.out.println(msg);
-        String name;
+    public void createStreams() throws IOException {
+        consoleReader = new BufferedReader(new InputStreamReader(System.in));
+        writer = new BufferedWriter(new FileWriter("resources/list.txt"));
+    }
 
-        {
-            try {
-                name = br.readLine(); ///Blocking method
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return name;
+    public String userAskInput (String message) throws IOException {
+
+        System.out.println(message);
+        return consoleReader.readLine();
 
     }
     protected static void copyFile() {
@@ -81,43 +77,32 @@ public class Utilities {
         System.out.println("Time: " + (endMilliseconds - startMilliseconds) + "ms");
     }
 
-    protected static void copyDirectory(String directory){
-        FileInputStream in = null;
-        File[] files;
-        FileOutputStream out = null;
+    protected void copyDirectory(String directory){
+
+        File files = new File(directory);
 
         try {
-            in = new FileInputStream(directory+"/input.txt");
-            files = new File(directory).listFiles();
-            out = new FileOutputStream(directory+"/filesNames.txt");
 
-            for (int i = 0; i < files.length; i++) {
-                System.out.println(files[i].toString());
-                out.write(files[i].toString().getBytes());
+            //files = new File(directory).listFiles();
+            for (File directoryFiles : files.listFiles()) {
+                writer.write(directoryFiles.getName());
+                System.out.println(directoryFiles.getName());
+                writer.newLine();
+                writer.flush();
+
             }
+
 
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
         catch (NullPointerException e){
             System.out.println("Error: " + e.getMessage());
-        }finally {
-            try {
-                in.close();
-                out.close();
-            } catch (IOException e) {
-                System.out.println("Error: " + e.getMessage());
-            }
         }
-
-
-
     }
 
-    protected static String askFileExistence(){
-        FileInputStream in = null;
+    protected String askFileExistence() throws IOException {
         File[] files;
-        FileOutputStream out = null;
         String fileExistence = null;
 
         String filePath = userAskInput("Whats the directory do you want to check?");
@@ -139,21 +124,12 @@ public class Utilities {
         }
         catch (NullPointerException e){
             System.out.println("Error: " + e.getMessage());
-        }finally {
-            /*try {
-                in.close();
-                out.close();
-            } catch (IOException e) {
-                System.out.println("Error: " + e.getMessage());
-            }
-
-             */
         }
         System.out.println(fileExistence);
         return fileExistence;
     }
 
-    protected static void askPathExistence(){
+    protected void askPathExistence() throws IOException {
         String filePath = userAskInput("Whats the path file do you want to check?");
         Path path = Paths.get(filePath);
 

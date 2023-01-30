@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd87634c-f883-4112-83d0-ee8f4b70916e" name="Changes" comment="new files">
-      <change afterPath="$PROJECT_DIR$/resources/list.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstInputExercise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/firstInputExercise.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/filesNames.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/filesNames.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DirectoryAnalyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DirectoryAnalyser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675095990148</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="new files">
+      <created>1675098639374</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675098639374</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
