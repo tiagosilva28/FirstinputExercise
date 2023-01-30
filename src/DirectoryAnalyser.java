@@ -59,7 +59,7 @@ public class DirectoryAnalyser {
        return writer == null || consoleReader == null;
     }
 
-    private void closeStreams() throws IOException {
+    void closeStreams() throws IOException {
         if(consoleReader != null){
             consoleReader.close();
         }

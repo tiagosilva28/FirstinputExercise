@@ -10,22 +10,25 @@ public class Main {
         String directory = Utilities.userAskInput("What's the directory you want to see?");
         */
 
-        Utilities.copyDirectory("resources");
+       /* Utilities.copyDirectory("resources");
 
         Utilities.askFileExistence();
 
         Utilities.askPathExistence();
 
+        */
+
         DirectoryAnalyser directoryAnalyser = new DirectoryAnalyser();
         try{
             directoryAnalyser.createStreams();
+            directoryAnalyser.writeDownFiles();
         }
         catch (IOException e){
             System.out.println(e.getMessage());
         }
         finally {
             try {
-            directoryAnalyser.
+                directoryAnalyser.closeStreams();
             }
             catch (IOException e){
                 System.out.println(e.getMessage());
