@@ -24,6 +24,18 @@ public class DirectoryAnalyser {
         }
     }
 
+    public void createField() throws IOException {
+        if(checkNullableStrems()){
+            System.out.println(Messages.NO_STREAMS);
+            return;
+        }
+        File directory = askforDirectory();
+        String secondUserInput = getUserInput(Messages.FILE_CREATION_QUESTION);
+        boolean newFile = new File(directory.getPath() + "/" + secondUserInput).createNewFile();
+        System.out.println(newFile ? Messages.FILE_CREATED : Messages.FILE_NOT_CREATED);
+
+    }
+
     private File askforDirectory() throws IOException {
         String userInput = getUserInput(Messages.DIRECTORY_QUESTION);
         File dir = new File(userInput);
@@ -61,7 +73,7 @@ public class DirectoryAnalyser {
             System.out.println(Messages.NO_STREAMS);
             return;
         }
-        String userInputString = getUserInput(Messages.NO_STREAMS);
+        String userInput = getUserInput(Messages.NO_STREAMS);
 
         if(new File(userInput).exists()){
             System.out.println(Messages.FILE_EXISTS);
