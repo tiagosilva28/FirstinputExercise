@@ -13,12 +13,13 @@ public class Utilities {
         writer = new BufferedWriter(new FileWriter("resources/list.txt"));
     }
 
-    public String userAskInput (String message) throws IOException {
+    public String userAskInput(String message) throws IOException {
 
         System.out.println(message);
         return consoleReader.readLine();
 
     }
+
     protected static void copyFile() {
         int startMilliseconds = (int) System.currentTimeMillis();
 
@@ -44,7 +45,6 @@ public class Utilities {
                 System.out.println("Error: " + e.getMessage());
             }
         }
-
 
         int endMilliseconds = 0;
         System.out.println("Time: " + (endMilliseconds - startMilliseconds) + "ms");
@@ -77,7 +77,7 @@ public class Utilities {
         System.out.println("Time: " + (endMilliseconds - startMilliseconds) + "ms");
     }
 
-    protected void copyDirectory(String directory){
+    protected void copyDirectory(String directory) {
 
         File files = new File(directory);
 
@@ -89,14 +89,12 @@ public class Utilities {
                 System.out.println(directoryFiles.getName());
                 writer.newLine();
                 writer.flush();
-
             }
 
 
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
@@ -112,17 +110,15 @@ public class Utilities {
             files = new File(filePath).listFiles();
 
             for (int i = 0; i < files.length; i++) {
-                if(fileName.equals(files[i].getName())){
+                if (fileName.equals(files[i].getName())) {
                     fileExistence = "File Exists";
                     break;
-                }
-                else {
+                } else {
                     fileExistence = "File doesn't Exists";
                 }
             }
 
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("Error: " + e.getMessage());
         }
         System.out.println(fileExistence);
@@ -134,15 +130,35 @@ public class Utilities {
         Path path = Paths.get(filePath);
 
         try {
-            if (Files.exists(path)){
+            if (Files.exists(path)) {
                 System.out.println("File Exists");
-            } else  {
+            } else {
                 System.out.println("File not found");
             }
 
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+  void fileNameFilter(String filterName) {
+        File files = new File("resources");
+        FilenameFilter filter = new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".jpg");
+            }
+        };
+
+        try {
+            //files = new File(directory).listFiles();
+            for (File directoryFiles : files.listFiles()) {
+                if (filter.accept(files, filterName)) {
+                    System.out.println(directoryFiles.getName());
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

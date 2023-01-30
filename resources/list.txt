@@ -1,6 +1,0 @@
-list.txt
-copy-image.jpg
-input.txt
-filesNames.txt
-output.txt
-image.jpg

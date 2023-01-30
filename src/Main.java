@@ -9,7 +9,8 @@ public class Main {
 
 
        utilities.createStreams();
-       utilities.copyDirectory("resources");
+       //utilities.copyDirectory("resources");
+        utilities.fileNameFilter("co");
 
         //Utilities.askFileExistence();
 
