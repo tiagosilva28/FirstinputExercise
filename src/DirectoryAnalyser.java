@@ -36,7 +36,7 @@ public class DirectoryAnalyser {
 
     }
 
-    private File askforDirectory() throws IOException {
+    public File askforDirectory() throws IOException {
         String userInput = getUserInput(Messages.DIRECTORY_QUESTION);
         File dir = new File(userInput);
         return checkIfNoDirectory(dir) ? askforDirectory() : dir;
@@ -68,7 +68,7 @@ public class DirectoryAnalyser {
         }
     }
 
-    private void checkFilePresence() throws IOException {
+    public void checkFilePresence() throws IOException {
         if(checkNullableStrems()){
             System.out.println(Messages.NO_STREAMS);
             return;

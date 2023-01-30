@@ -22,6 +22,8 @@ public class Main {
         try{
             directoryAnalyser.createStreams();
             directoryAnalyser.writeDownFiles();
+            directoryAnalyser.checkFilePresence();
+            directoryAnalyser.createField();
         }
         catch (IOException e){
             System.out.println(e.getMessage());
