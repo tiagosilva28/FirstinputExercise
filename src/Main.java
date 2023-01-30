@@ -15,5 +15,21 @@ public class Main {
         Utilities.askFileExistence();
 
         Utilities.askPathExistence();
+
+        DirectoryAnalyser directoryAnalyser = new DirectoryAnalyser();
+        try{
+            directoryAnalyser.createStreams();
+        }
+        catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+        finally {
+            try {
+            directoryAnalyser.
+            }
+            catch (IOException e){
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }
