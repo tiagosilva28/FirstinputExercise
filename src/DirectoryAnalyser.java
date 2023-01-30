@@ -5,7 +5,7 @@ public class DirectoryAnalyser {
 
     public void createStreams() throws IOException {
         consoleReader = new BufferedReader(new InputStreamReader(System.in));
-        writer = new BufferedWriter(new FileWriter("resources/list.txt"));
+        writer = new BufferedWriter(new FileWriter("resources/list2.txt"));
     }
 
     public void writeDownFiles() throws IOException {
@@ -16,8 +16,7 @@ public class DirectoryAnalyser {
         File directory = askforDirectory();
         System.out.println(Messages.LISTINING_MESSAGE);
 
-        for (File directoryFile :
-                directory.listFiles()) {
+        for (File directoryFile : directory.listFiles()) {
             writer.write(directoryFile.getName());
             writer.newLine();
             writer.flush();

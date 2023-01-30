@@ -1,24 +1,23 @@
 import java.io.*;
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        Utilities utilities = new Utilities();
 
-        //Utilities.copyFile();
-       /*String name = Utilities.userAskInput("What's your name mate?");
-        System.out.println("Nice to meet you: " + name);
+        //String directory = Utilities.userAskInput("What's the directory you want to see?");
 
-        String directory = Utilities.userAskInput("What's the directory you want to see?");
-        */
 
-       /* Utilities.copyDirectory("resources");
 
-        Utilities.askFileExistence();
+       utilities.createStreams();
+       utilities.copyDirectory("resources");
 
-        Utilities.askPathExistence();
+        //Utilities.askFileExistence();
 
-        */
+        //Utilities.askPathExistence();
 
-        DirectoryAnalyser directoryAnalyser = new DirectoryAnalyser();
+
+
+        /*DirectoryAnalyser directoryAnalyser = new DirectoryAnalyser();
         try{
             directoryAnalyser.createStreams();
             directoryAnalyser.writeDownFiles();
@@ -36,5 +35,9 @@ public class Main {
                 System.out.println(e.getMessage());
             }
         }
+
+         */
     }
+
+
 }

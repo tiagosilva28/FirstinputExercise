@@ -1,1 +1,0 @@
-resources/copy-image.jpgresources/input.txtresources/filesNames.txtresources/output.txtresources/image.jpg
