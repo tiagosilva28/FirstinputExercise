@@ -8,18 +8,6 @@ public class Utilities {
     private BufferedReader consoleReader;
     private BufferedWriter writer;
 
-    public void createStreams() throws IOException {
-        consoleReader = new BufferedReader(new InputStreamReader(System.in));
-        writer = new BufferedWriter(new FileWriter("resources/list.txt"));
-    }
-
-    public String userAskInput(String message) throws IOException {
-
-        System.out.println(message);
-        return consoleReader.readLine();
-
-    }
-
     protected static void copyFile() {
         int startMilliseconds = (int) System.currentTimeMillis();
 
@@ -75,6 +63,18 @@ public class Utilities {
         }
         endMilliseconds = (int) System.currentTimeMillis();
         System.out.println("Time: " + (endMilliseconds - startMilliseconds) + "ms");
+    }
+
+    public void createStreams() throws IOException {
+        consoleReader = new BufferedReader(new InputStreamReader(System.in));
+        writer = new BufferedWriter(new FileWriter("resources/list.txt"));
+    }
+
+    public String userAskInput(String message) throws IOException {
+
+        System.out.println(message);
+        return consoleReader.readLine();
+
     }
 
     protected void copyDirectory(String directory) {
@@ -141,24 +141,30 @@ public class Utilities {
         }
     }
 
-  void fileNameFilter(String filterName) {
+    void fileNameFilter(String filterName) {
         File files = new File("resources");
         FilenameFilter filter = new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
-                return name.endsWith(".jpg");
+                return name.startsWith(filterName);
             }
         };
 
         try {
-            //files = new File(directory).listFiles();
-            for (File directoryFiles : files.listFiles()) {
-                if (filter.accept(files, filterName)) {
-                    System.out.println(directoryFiles.getName());
+            String[] filteredString = files.list(filter);
+            if (filteredString.length > 0) {
+                for (int i = 0; i < filteredString.length; i++) {
+                    System.out.println(filteredString[i]);
                 }
+
+            } else {
+                System.out.println("Filtered Files doesn't exist");
             }
+
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
     }
 }

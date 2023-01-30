@@ -1,4 +1,5 @@
-import java.io.*;
+import java.io.IOException;
+
 public class Main {
 
     public static void main(String[] args) throws IOException {
@@ -7,9 +8,8 @@ public class Main {
         //String directory = Utilities.userAskInput("What's the directory you want to see?");
 
 
-
-       utilities.createStreams();
-       //utilities.copyDirectory("resources");
+        utilities.createStreams();
+        //utilities.copyDirectory("resources");
         utilities.fileNameFilter("co");
 
         //Utilities.askFileExistence();
